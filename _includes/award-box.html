@@ -4,18 +4,19 @@
     <div>
       {% if award.level %}<div class="badge">{{ award.level }}</div>{% endif %}
       {% if award.certificate %}
-      <img src="{{ award.certificate | relative_url | xml_escape }}" alt="{{ award.title_en | escape }}" loading="lazy">
+      <img src="{{ award.certificate | relative_url | xml_escape }}" alt="{{ award.title_en | default: award.title_zh | escape }}" loading="lazy">
       {% endif %}
     </div>
   </div>
   <div class='paper-box-text award-box-text'>
-    <div class="award-text-en">
+    {% if award.title_en %}<div class="award-text-en">
       <p class="award-title"><strong>{{ award.title_en }}</strong></p>
       <p>{{ award.date_label }} · {{ award.prize_en }}{% if award.ranking %} <span class="award-ranking">({{ award.ranking }})</span>{% endif %}</p>
-    </div>
+    </div>{% endif %}
     <div class="award-text-zh">
       <p class="award-title"><strong>{{ award.title_zh }}</strong></p>
-      <p>{{ award.date_label }} · {{ award.prize_zh }}{% if award.ranking %} <span class="award-ranking">（{{ award.ranking }}）</span>{% endif %}</p>
+      {% if award.date_label or award.prize_zh or award.ranking %}<p>{{ award.date_label }}{% if award.date_label and award.prize_zh %} · {% endif %}{{ award.prize_zh }}{% if award.ranking %} <span class="award-ranking">（{{ award.ranking }}）</span>{% endif %}</p>{% endif %}
     </div>
   </div>
 </div>
+
