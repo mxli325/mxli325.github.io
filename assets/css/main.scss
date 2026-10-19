@@ -1,0 +1,161 @@
+---
+---
+
+/*
+ *    Minimal Mistakes Jekyll Theme
+ *
+ *  - Michael Rose
+ *  - mademistakes.com
+ *  - https://twitter.com/mmistakes
+ *
+*/
+
+@import "vendor/breakpoint/breakpoint"; // media query mixins
+@import "variables";
+@import "mixins";
+@import "vendor/susy/susy";
+
+@import "reset";
+@import "base";
+
+@import "utilities";
+@import "masthead";
+@import "navigation";
+@import "page";
+@import "sidebar";
+
+.paper-box {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 1px #efefef solid;
+    padding: 2em 0 2em 0;
+    
+
+    .paper-box-image{
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        order: 2;
+        > div {
+            position: relative;
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            max-width: none;
+            box-shadow: 3px 3px 6px #888;
+            object-fit: cover;
+        }
+    }
+    
+    .paper-box-text{
+        max-width: 100%;
+        order: 1;
+    }
+    
+    @include breakpoint($medium) {
+        .paper-box-image{
+            justify-content: left;
+            flex: 0 0 25%;
+            max-width: 25%;
+            order: 1;
+        }
+        
+        .paper-box-text{
+            justify-content: left;
+            padding-left: 2em;
+            flex: 0 0 75%;
+            max-width: 75%;
+            order: 2;
+        }
+
+    }
+
+
+}
+
+$scroll_offset : 2em;
+h1:before, .anchor:before { 
+    content: ''; 
+    display: block; 
+    position: relative; 
+    width: 0; 
+    height: $scroll_offset; 
+    margin-top: -$scroll_offset;
+}
+
+.badge {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: absolute;
+    margin-top: .5em;
+    margin-left: -.5em;
+    color: white;
+    background-color: #00369f;
+    font-size: .8em;
+}
+
+.journal-info {
+    margin-top: 0.75em;
+    color: $gray;
+    font-size: $type-size-6;
+}
+
+.award-box {
+    padding: 1.6em 0;
+}
+
+.award-box-image {
+    order: 1;
+
+    > div {
+        max-width: 360px;
+    }
+}
+
+.paper-box.award-box .award-box-image {
+    img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        border: 1px solid #e5e5e5;
+        background: #fff;
+    }
+}
+
+.award-box-text {
+    margin-top: 0.85em;
+    order: 2;
+}
+
+@include breakpoint($medium) {
+    .award-box-text {
+        margin-top: 0;
+    }
+
+    .paper-box.award-box .award-box-image img {
+        height: auto;
+    }
+}
+
+.award-title {
+    margin-bottom: 0.2em;
+}
+
+.award-text-en {
+    margin-bottom: 0.75em;
+}
+
+.award-text-en p,
+.award-text-zh p {
+    margin-bottom: 0.25em;
+}
+
+.award-ranking {
+    color: $gray;
+}
