@@ -1,22 +1,15 @@
 {% assign award = include.award %}
-<div class='paper-box award-box'>
-  <div class='paper-box-image award-box-image'>
+<div class="paper-box">
+  <div class="paper-box-image">
     <div>
-      {% if award.level %}<div class="badge">{{ award.level }}</div>{% endif %}
-      {% if award.certificate %}
-      <img src="{{ award.certificate | relative_url | xml_escape }}" alt="{{ award.title_en | default: award.title_zh | escape }}" loading="lazy">
-      {% endif %}
+      <div class="badge">{{ award.level }} {{ award.date_label | slice: 0, 4 }}</div>
+      <a href="{{ award.certificate | relative_url | xml_escape }}"><img src="{{ award.certificate | relative_url | xml_escape }}" alt="{{ award.title_zh | escape }}" loading="lazy" style="height: auto; object-fit: contain;"></a>
     </div>
   </div>
-  <div class='paper-box-text award-box-text'>
-    {% if award.title_en %}<div class="award-text-en">
-      <p class="award-title"><strong>{{ award.title_en }}</strong></p>
-      <p>{{ award.date_label }} · {{ award.prize_en }}{% if award.ranking %} <span class="award-ranking">({{ award.ranking }})</span>{% endif %}</p>
-    </div>{% endif %}
-    <div class="award-text-zh">
-      <p class="award-title"><strong>{{ award.title_zh }}</strong></p>
-      {% if award.date_label or award.prize_zh or award.ranking %}<p>{{ award.date_label }}{% if award.date_label and award.prize_zh %} · {% endif %}{{ award.prize_zh }}{% if award.ranking %} <span class="award-ranking">（{{ award.ranking }}）</span>{% endif %}</p>{% endif %}
-    </div>
+  <div class="paper-box-text">
+    <p><a href="{{ award.certificate | relative_url | xml_escape }}">{{ award.title_en | default: award.title_zh }}</a></p>
+    <p>{{ award.title_zh }}</p>
+    {{ award.content | markdownify }}
+    <p class="journal-info"><strong>Award:</strong> {{ award.prize_en }} / {{ award.prize_zh }} · <strong>Date:</strong> {{ award.date_label }} · <strong>Level:</strong> {{ award.level }}{% if award.ranking %} · {{ award.ranking }}{% endif %}</p>
   </div>
 </div>
-

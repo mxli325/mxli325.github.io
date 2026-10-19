@@ -1,6 +1,10 @@
 ---
-title: "一等奖"
-title_zh: "一等奖"
+title: '第十二届全国大学生电子商务“创新、创意及创业”挑战赛河北赛区省级选拔赛'
+title_en: 'The 12th National College Students E-Commerce Innovation, Creativity and Entrepreneurship Challenge — Hebei Provincial Selection'
+title_zh: '第十二届全国大学生电子商务“创新、创意及创业”挑战赛河北赛区省级选拔赛'
+date_label: "2022.07"
+prize_en: "First Prize"
+prize_zh: "一等奖"
 level: Provincial
 order: 6
 certificate: "/images/Awards/Provincial/一等奖.jpg"
