@@ -1,7 +1,7 @@
 ---
 title: "SpatialCOC: an integrative framework for spatial continuous mapping and cross-omics correction in spatial multi-omics data"
 venue: "Nature Communications 2026"
-image: "images/Papers/SpatialCOC.png"
+image: 
 image_width: "100%"
 link: "https://www.nature.com/articles/s41467-026-71882-2"
 journal: "Nature Communications"
