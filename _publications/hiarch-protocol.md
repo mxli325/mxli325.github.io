@@ -9,7 +9,7 @@ year: 2026
 impact_factor: "1.3"
 impact_factor_year: "2024 JCR"
 quartile: "中科院4区"
-order: 2
+order: 4
 ---
 
 Mingxuan Li (黎明轩), Kai Ye (叶凯)
