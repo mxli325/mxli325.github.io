@@ -103,3 +103,9 @@ h1:before, .anchor:before {
     color: $gray;
     font-size: $type-size-6;
 }
+
+.paper-box.paper-box--text-only .paper-box-text {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: 0;
+}

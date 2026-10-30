@@ -9,7 +9,7 @@ year: 2026
 impact_factor: "18.1"
 impact_factor_year: "2025 JCR"
 quartile: "中科院1区"
-order: 1
+order: 3
 ---
 
 Mingxuan Li\*, Peisen Sun\*, Yisi Luo, Guancheng Zhou, Xiaofei Yang, Deyu Meng & Kai Ye<sup>#</sup>

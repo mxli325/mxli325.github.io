@@ -16,21 +16,22 @@ redirect_from:
 
 {% assign publications = site.publications | sort: "order" %}
 {% for publication in publications %}
-<div class='paper-box'>
-  <div class='paper-box-image'>
+<div class='paper-box{% unless publication.image %} paper-box--text-only{% endunless %}'>
+  {% if publication.image %}<div class='paper-box-image'>
     <div>
       {% if publication.venue %}<div class="badge">{{ publication.venue }}</div>{% endif %}
       {% if publication.image %}<img src='{{ publication.image }}' alt="{{ publication.title | escape }}" style="width: {{ publication.image_width | default: '100%' }};">{% endif %}
     </div>
   </div>
-  <div class='paper-box-text'>
+  {% endif %}<div class='paper-box-text'>
+    {% unless publication.image %}<p class="journal-info">{{ publication.venue }}</p>{% endunless %}
     <p><a href="{{ publication.link }}">{{ publication.title }}</a></p>
     {{ publication.content | markdownify }}
     <p class="journal-info">
       <strong>Journal:</strong> {{ publication.journal }}
       · <strong>Year:</strong> {{ publication.year }}
-      · <strong>Impact Factor:</strong> {{ publication.impact_factor }}{% if publication.impact_factor_year %} ({{ publication.impact_factor_year }}){% endif %}
-      · <strong>Quartile:</strong> {{ publication.quartile }}
+      {% if publication.impact_factor %}· <strong>Impact Factor:</strong> {{ publication.impact_factor }}{% if publication.impact_factor_year %} ({{ publication.impact_factor_year }}){% endif %}{% endif %}
+      {% if publication.quartile %}· <strong>Quartile:</strong> {{ publication.quartile }}{% endif %}
     </p>
   </div>
 </div>
